@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>
+		Q2 filter
+	</title>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+<div ng-app="myApp" ng-controller="mycontrol">
+Number: <input ng-model="num"><br>
+
+<p>Number : {{num | number:2}}</p><br><br>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('mycontrol', function($scope) {
+    $scope.num = 4.557693;
+});
+</script>
+</body>
+</html>

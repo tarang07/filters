@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="mycontrol">
+Name: <input ng-model="name"><br>
+Employee Id: <input ng-model = "employee"><br>
+Designation: <input ng-model = "designation"><br>
+
+<p>Name : {{name | uppercase}}</p><br><br>
+<p>Employee Id :{{employee | uppercase}}</p><br><br>
+<p>Designation: {{designation | uppercase}}</p><br><br>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('mycontrol', function($scope) {
+    $scope.name = "Naruto";
+    $scope.employee = "Leaf Ninja";
+    $scope.designation = "Chunin";
+});
+</script>
+
+</body>
+</html>
+
