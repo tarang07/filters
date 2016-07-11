@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<head>
+	<title>
+		Advanced JS 2
+	</title>
+	<script type="text/javascript">
+		(function () {
+			var Vehicle = function(wheel) {
+				this.wheel = wheel;
+			};
+
+			function VehicleType(vehicle_name,brand,wheel) {
+				Vehicle.call(this,wheel); // vehicle is parent class nd here linking is established
+				this.vehicle_name = vehicle_name;
+				this.brand = brand;
+			}
+			VehicleType.prototype = Object.create(Vehicle.prototype);
+			VehicleType.prototype.constructor = VehicleType;
+			VehicleType.prototype.specifications = function() { 
+				alert("Vehicle Name "+this.vehicle_name+" Brand "+this.brand+" Wheel "+ this.wheel);
+			};
+
+			var vehicleBike = new VehicleType('Avenger','Bajaj',2); 
+			var vehicleCar = new VehicleType('Fortuner','Toyata',4);
+			var vehicleAuto = new VehicleType('RE205','Bajaj',3);
+			vehicleBike.specifications();
+			vehicleCar.specifications();
+			vehicleAuto.specifications();
+
+
+
+		})();
+	</script>
+</head>
 <body>
-
-<p>Click the table headers to change the sorting order:</p>
-
-<div ng-app="myApp" ng-controller="mycontroller">
-
-<table border="1" width="20%">
-<tr>
-<th ng-click="orderByMe('name')">Name</th>
-</tr>
-<tr ng-repeat="x in names | orderBy:myOrderBy">
-<td>{{x.name}}</td>
-</tr>
-</table>
-
-</div>
-
-<script>
-angular.module('myApp', []).controller('mycontroller', function($scope) {
-    $scope.names = [
-        {name:'Jani'},
-        {name:'Preeti'},
-        {name:'Ojha'},
-        {name:'Pajji'},
-        {name:'Amit'},
-        {name:'Dipu'},
-        {name:'Kriti'},
-        {name:'Sneha'}
-        ];
-    $scope.orderByMe = function(x) {
-        $scope.myOrderBy = x;
-    }
-});
-</script>
-
+<h3>OOPs Vehicle</h3>
+<h4>Inheritance is Implemented</h4>
 </body>
 </html>
-
